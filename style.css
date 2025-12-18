@@ -1,0 +1,71 @@
+
+:root {
+    --border   : 1px solid #111;
+    --darkBlue : #1a1a1a;
+    --lightBlue: #3c465a;
+}
+html{
+    margin :0;
+    padding:0; 
+    background-color: #222;
+}
+
+::-webkit-scrollbar       { width: 8px; }
+::-webkit-scrollbar-track { background-color: var(--darkBlue ); }
+::-webkit-scrollbar-thumb { background-color: var(--lightBlue); }
+
+
+h1, h2, footer {
+    font-family:Arial, Helvetica, sans-serif;
+    text-align : center;
+    color      : coral;
+    background-color: var(--darkBlue);
+    margin-inline: 0;    padding-inline: 0; 
+    margin-block : 0.5%; padding-block: 0.5%
+}
+#container {
+    display: grid; grid-template-columns: repeat(3, 33.3%);
+}
+
+#log-output, #canvas, #code, #data {
+    width: 98%; margin-inline: 1%; padding: 0; margin-block: 0;
+    border: var(--border);
+    background-color: #333;
+}
+
+#code, #data {
+    color  : #aaa;
+    resize : none;
+    height : 50%;
+    display: block;
+}
+
+#log-output{ 
+    white-space: pre-wrap; 
+    font-family: monospace;
+    color: lime;
+}
+
+a { color: lightblue }
+button {
+    width: 50%; margin-inline: 25%; margin-block: 3%;
+    height: 5vh;
+    border: var(--border);
+    background-color: var(--lightBlue);
+    color: coral;
+    font-size: large;
+    transition: 0.2s;
+    text-shadow: 0px 2px 3px black;
+    &:hover{cursor: pointer; background-color: #636f87; color: rgb(255, 143, 102); transition: 0.2s;}
+}
+
+#examples {
+    display: grid; grid-template-columns: repeat(2, 50%);
+    color: lightblue;
+    font-family: monospace;
+}
+
+#about {
+    color: lightblue;
+    font-family: monospace;
+}

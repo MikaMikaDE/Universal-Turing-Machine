@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Universal Turing Machine</title>
+    <link rel="stylesheet" href="./style.css"> 
+  </head>
+
+  <body>
+
+
+    <h1>Universal Turing Machine</h1>
+    <button id="run">Run Program</button>
+    <div id="container">
+      <span>
+        <textarea id="code" spellcheck="false">
+q0 _ ➤ q6 _ R
+q0 - ➤ q6 - R
+q0 1 ➤ q1 1 R
+
+q1 1 ➤ q1 1 R
+q1 - ➤ q2 - R
+
+q2 1 ➤ q2 1 R
+q2 _ ➤ q3 _ L
+
+q3 1 ➤ q4 _ L
+q3 - ➤ q6 _ R
+
+q4 - ➤ q4 - L
+q4 1 ➤ q4 1 L
+q4 _ ➤ q5 _ R
+q5 1 ➤ q0 _ R
+
+q6 _ ➤ HALT
+        </textarea>
+        <textarea id="data" spellcheck="false">111-11</textarea>
+      </span>
+      <div    id="log-output"></div>
+      <canvas id="canvas" width="900" height="900"></canvas>
+    </div>
+
+    <h2>Some examples you can try:</h2>
+    <div id="examples">
+      <span>
+        <h3>Unary Sum (Addition)</h3>
+        <pre>
+q0 1 ➤ q0 1 R
+q0 + ➤ q1 1 R
+
+q1 1 ➤ q1 1 R
+q1 _ ➤ q2 _ L
+
+q2 1 ➤ q3 _ L
+
+q3 1 ➤ q3 1 L
+q3 _ ➤ HALT
+        </pre>#
+        <p>111+11</p>
+      </span>
+      <span>
+        <h3>Unary Difference (Subtraction)</h3>
+        <pre>
+q0 _ ➤ q6 _ R
+q0 - ➤ q6 - R
+q0 1 ➤ q1 1 R
+
+q1 1 ➤ q1 1 R
+q1 - ➤ q2 - R
+
+q2 1 ➤ q2 1 R
+q2 _ ➤ q3 _ L
+
+q3 1 ➤ q4 _ L
+q3 - ➤ q6 _ R
+
+q4 - ➤ q4 - L
+q4 1 ➤ q4 1 L
+q4 _ ➤ q5 _ R
+q5 1 ➤ q0 _ R
+
+q6 _ ➤ HALT
+        </pre>#
+        <p>111-11</p>
+      </span>
+    </div>
+    <h2>About this UTM</h2>
+    <span id="about">
+      <ul>
+        <li>The code and data sections that you input above are merged and encoded into a single string, with '#' as a delimeter.</li>
+        <li>This follows the 'normal' construction of UTMs - The actual machine only accepts a single string, but i've separated these to be more user-friendly.</li>
+        <li>If the machine encounters an illegal transition, it halts. </li>
+        <li>This follows the design of the original Turing thesis.</li>
+        <br>
+        <li>This was whipped up in a day (real fast) to serve for a uni assignment.</li>
+        <li>The actual source code is likely quite bad! You can download it below, but it's messy and not well commented.</li>
+        <li>If you do want to mess with it, you'll probably want to mess with <strong>maps.js</strong>.</li>
+        <li><strong>maps.js</strong> stores the encodings for each symbol, as well as the bitwidth of the state(by default, 4 bits), etc.</li>
+        
+      </ul>
+    </span>
+
+    <footer>
+      <p>Universal Turing Machine by MIKA  -  <a href="./utm.zip">You can download the node version of this program here.</a></p>
+    </footer>
+
+    
+
+  </body>
+
+  <script              src="script/console-overwrite.js"></script>
+  <script type="module"src="script/html-interface.js">  </script>
+  <script type="module"src="script/draw.js"></script>
+  <script type="module"src="script/main.js"></script>
+
+</html>
